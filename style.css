@@ -710,45 +710,59 @@ p {
 		flex-basis: 22%;
 		margin: 1.5%;
 	}
-	 .responsive-iframe { padding-bottom: 65vw; }
-img, video { max-width: 100%; height: auto; display: block; border-radius: 8px; margin-bottom: 16px; }
-.responsive-iframe { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; margin-bottom: 20px; }
-.responsive-iframe iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-/* Perbaikan untuk mobile agar iframe benar-benar fullscreen */
-@media (max-width: 768px) {
-  html, body {
-    height: 100%;
+/* Responsive Fullscreen Iframe & Mobile Optimization */
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.responsive-iframe {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.responsive-iframe iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .responsive-iframe {
     width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-  #hero, 
-  .container,
-  .responsive-iframe {
-    min-height: 100vh !important;
-    height: 100vh !important;
-    width: 100vw !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    box-sizing: border-box;
-    display: flex;
-    align-items: stretch;
-    justify-content: stretch;
-  }
-  .responsive-iframe {
-    position: relative;
-    width: 100vw !important;
-    height: 100vh !important;
-    padding-bottom: 0 !important;
-    margin-bottom: 0 !important;
+    height: 60vw;
+    min-height: 480px;
+    max-width: 1200px;
+    margin: 0 auto 20px auto;
+    padding-bottom: 0;
   }
   .responsive-iframe iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100vw !important;
-    height: 100vh !important;
-    border: none;
+    width: 100%;
+    height: 100%;
+    position: static;
   }
 }
-}
+
