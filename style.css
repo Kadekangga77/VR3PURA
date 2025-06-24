@@ -748,13 +748,7 @@ html, body {
   height: 100vh;
   border: none;
   display: block;
-}
-.cta.clicked::after {
-    animation: cta-ripple 0.4s;
-}
-@keyframes cta-ripple {
-    0% { width: 0; height: 0; opacity: 1;}
-    100% { width: 120%; height: 300%; opacity: 0; }
+
 }
 
 @media (min-width: 769px) {
