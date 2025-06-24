@@ -22,4 +22,11 @@ menu_item.forEach((item) => {
 		hamburger.classList.toggle('active');
 		mobile_menu.classList.toggle('active');
 	});
+	document.querySelectorAll('.cta').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        this.classList.remove('clicked');
+        void this.offsetWidth; // Trigger reflow
+        this.classList.add('clicked');
+    });
+});
 });
